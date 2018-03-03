@@ -73,7 +73,9 @@ namespace LoadReviewToSQL
     class Program
     {
         private static EventHubClient eventHubClient;
-        private const string EhConnectionString = "Endpoint=sb://mytesteventhubs.servicebus.windows.net/;SharedAccessKeyName=policy_myfirsteventhub;SharedAccessKey=6/UzcE51ioMRtfUNCM2JNRsMsHTxebDr58zw2/TitzM=;EntityPath=myfirsteventhub";
+
+        //Need to enter key here from Azure Event Hub
+        private const string EhConnectionString = "Endpoint=sb://mytesteventhubs.servicebus.windows.net/;SharedAccessKeyName=policy_myfirsteventhub;SharedAccessKey=<Enter key here>;EntityPath=myfirsteventhub";
         private const string EhEntityPath = "myfirsteventhub";
 
         static void Main(string[] args)
@@ -87,7 +89,7 @@ namespace LoadReviewToSQL
             // Create a client.
             ITextAnalyticsAPI client = new TextAnalyticsAPI();
             client.AzureRegion = AzureRegions.Westcentralus;
-            client.SubscriptionKey = "995177fb48344b2ebbf670809aa63cd6";
+            client.SubscriptionKey = "<Get Key from Azure Text Analytics API and paste it here>";
 
             //Init Event Hub
             var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
